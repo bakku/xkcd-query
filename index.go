@@ -16,8 +16,8 @@ func NewIndex(filepath *string) (index *Index) {
 	}
 }
 
-func (index *Index) Populate() {
-	fmt.Print("Populating index...")
+func (index *Index) Refresh() {
+	fmt.Print("Refreshing index...")
 
 	comic, ok := GetLatestComic()
 	if ok != true {

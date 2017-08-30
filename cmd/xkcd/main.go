@@ -12,5 +12,5 @@ func main() {
 	flag.Parse()
 
 	index := xkcd.NewIndex(indexLocation)
-	index.Populate()
+	index.Refresh()
 }
