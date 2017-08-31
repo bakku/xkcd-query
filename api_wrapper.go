@@ -26,14 +26,14 @@ func GetComicById(id int) (comic *Comic, ok bool) {
 		return nil, false
 	}
 
-	var c Comic
-	err = json.NewDecoder(resp.Body).Decode(&c)
+	err = json.NewDecoder(resp.Body).Decode(&comic)
 	if err != nil {
 		fmt.Println("Could not decode response body of comic with ID:", id)
 		return nil, false
 	}
 
-	return &c, true
+	ok = true
+	return
 }
 
 func GetLatestComic() (comic *Comic, ok bool) {
@@ -44,12 +44,12 @@ func GetLatestComic() (comic *Comic, ok bool) {
 	}
 	defer resp.Body.Close()
 
-	var c Comic
-	err = json.NewDecoder(resp.Body).Decode(&c)
+	err = json.NewDecoder(resp.Body).Decode(&comic)
 	if err != nil {
 		fmt.Println("Could not decode latest comic response")
 		return nil, false
 	}
 
-	return &c, true
+	ok = true
+	return
 }
