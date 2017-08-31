@@ -16,14 +16,19 @@ First of all you have to create an index using the `refresh` command. The tool e
 
 Example:
 
-    ./xkcd refresh 				  # default location
+    ./xkcd refresh                                # default location
     ./xkcd -index /home/bakku/.index.json refresh # location is being specified
 
 It might take a while for the image to be created. I might improve the download speed by adding concurrency in the future but for now each refresh will issue approx. 2000 requests and process them sequentially.
 
 After a successful refresh you can begin to query your index.
 
-    ./xkcd query github 			       # default location
-    ./xkcd -index /home/bakku/.index.json query github # specified location
+    ./xkcd query github
+    0) Number: 624    Link: https://imgs.xkcd.com/comics/branding.png
+    1) Number: 1656   Link: https://imgs.xkcd.com/comics/it_begins.png
+
+Or (depending on your index location)
+
+    ./xkcd -index /home/bakku/.index.json query github
     0) Number: 624    Link: https://imgs.xkcd.com/comics/branding.png
     1) Number: 1656   Link: https://imgs.xkcd.com/comics/it_begins.png
